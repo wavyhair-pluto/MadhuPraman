@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
-export default function LoginScreen({ onLogin }) {
-  const [beekeeperId, setBeekeeperId] = useState('');
-  const [pin, setPin] = useState('');
+export default function LoginScreen({ onAuth }) {
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [name, setName] = useState('');
+  const [id, setId] = useState(''); // Email for register, Madhukranti ID/Email for login
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -11,9 +13,9 @@ export default function LoginScreen({ onLogin }) {
     setError('');
     setLoading(true);
     try {
-      await onLogin(beekeeperId, pin);
+      await onAuth(id, password, isRegistering, name);
     } catch (err) {
-      setError(err.message || 'Authentication failed. Verify your Madhukranti ID and PIN.');
+      setError(err.message || 'Authentication failed. Verify your details.');
     } finally {
       setLoading(false);
     }
@@ -30,27 +32,48 @@ export default function LoginScreen({ onLogin }) {
           <p className="text-sm text-slate-500 mt-1">Zero-Trust Beekeeper Capture</p>
         </div>
 
+        <div className="flex mb-4 bg-slate-100 rounded-xl p-1">
+          <button className={`flex-1 py-2 rounded-lg text-sm font-semibold transition ${!isRegistering ? 'bg-white shadow text-navy' : 'text-slate-500'}`} onClick={() => { setIsRegistering(false); setError(''); }}>Login</button>
+          <button className={`flex-1 py-2 rounded-lg text-sm font-semibold transition ${isRegistering ? 'bg-white shadow text-navy' : 'text-slate-500'}`} onClick={() => { setIsRegistering(true); setError(''); }}>Register</button>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-4">
+          {isRegistering && (
+            <div>
+              <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Full Name</label>
+              <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                className="w-full border-2 border-slate-200 focus:border-navy p-3 rounded-xl outline-none transition"
+                required
+              />
+            </div>
+          )}
+          
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Madhukranti ID</label>
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+              {isRegistering ? 'Email Address' : 'Madhukranti ID or Email'}
+            </label>
             <input
-              type="text"
-              placeholder="e.g. BK-1001"
-              value={beekeeperId}
-              onChange={e => setBeekeeperId(e.target.value.toUpperCase())}
+              type={isRegistering ? 'email' : 'text'}
+              placeholder={isRegistering ? 'name@example.com' : 'e.g. BK-1001'}
+              value={id}
+              onChange={e => setId(e.target.value)}
               className="w-full border-2 border-slate-200 focus:border-navy p-3 rounded-xl outline-none transition"
               required
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">PIN</label>
+            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+              {isRegistering ? 'Password' : 'PIN or Password'}
+            </label>
             <input
               type="password"
-              placeholder="4-digit PIN"
-              value={pin}
-              onChange={e => setPin(e.target.value)}
+              placeholder={isRegistering ? 'Create a secure password' : 'Enter PIN / Password'}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
               className="w-full border-2 border-slate-200 focus:border-navy p-3 rounded-xl outline-none transition"
-              maxLength={4}
               required
             />
           </div>
@@ -62,8 +85,7 @@ export default function LoginScreen({ onLogin }) {
             disabled={loading}
             className="w-full bg-navy text-white p-3.5 rounded-xl font-semibold shadow-lg hover:bg-blue-900 transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-            {loading ? 'Authenticating...' : 'Login via WebAuthn'}
+            {loading ? 'Authenticating...' : isRegistering ? 'Create Beekeeper Account' : 'Login securely'}
           </button>
         </form>
 

@@ -10,19 +10,24 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [screen, setScreen] = useState('home'); // 'home' or 'capture'
 
-  const handleLogin = async (beekeeperId, pin) => {
+  const handleLogin = async (id, password, isRegistering, name) => {
     try {
-      const res = await fetch(`${API_URL}/api/auth/login`, {
+      const endpoint = isRegistering ? '/api/auth/register' : '/api/auth/login';
+      const payload = isRegistering 
+        ? { name, email: id, password, role: 'beekeeper' }
+        : { id, type: 'beekeeper', password };
+
+      const res = await fetch(`${API_URL}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: beekeeperId, type: 'beekeeper', password: pin })
+        body: JSON.stringify(payload)
       });
       const data = await res.json();
       if (data.token) {
         setToken(data.token);
         setUser(data.user);
       } else {
-        throw new Error(data.error || 'Login failed');
+        throw new Error(data.error || 'Authentication failed');
       }
     } catch (err) {
       throw err;
@@ -30,7 +35,7 @@ export default function App() {
   };
 
   if (!token) {
-    return <LoginScreen onLogin={handleLogin} />;
+    return <LoginScreen onAuth={handleLogin} />;
   }
 
   if (screen === 'capture') {

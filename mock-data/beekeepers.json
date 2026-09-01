@@ -3,9 +3,9 @@
     "id": "BK-1001",
     "name": "Rajesh Kumar",
     "pin": "1234",
-    "region": "Himachal Pradesh",
-    "district": "Kullu",
-    "hiveZone": { "latitude": 31.1048, "longitude": 77.1734, "radiusKm": 5.0 },
+    "region": "Jammu",
+    "district": "Jammu",
+    "hiveZone": { "latitude": 32.801, "longitude": 74.891, "radiusKm": 5.0 },
     "registrationStatus": "ACTIVE",
     "floraExpected": ["Mustard", "Apple", "Eucalyptus"],
     "maxYieldPerSeasonKg": 500
