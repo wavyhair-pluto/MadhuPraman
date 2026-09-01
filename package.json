@@ -1,0 +1,19 @@
+{
+  "name": "truesource-honeychain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tamper-evident blockchain-backed traceability system for Indian honey — SIH2026",
+  "workspaces": [
+    "api",
+    "capture-pwa",
+    "web",
+    "chaincode"
+  ],
+  "scripts": {
+    "start:api": "npm run dev --workspace=api",
+    "start:capture": "npm run dev --workspace=capture-pwa",
+    "start:web": "npm run dev --workspace=web",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down"
+  }
+}

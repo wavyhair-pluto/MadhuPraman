@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  madhukrantiId String?  @unique
+  email         String?  @unique
+  name          String
+  role          String   // "beekeeper", "processor", "auditor"
+  passwordHash  String?
+  pin           String?
+  region        String?
+  createdAt     DateTime @default(now())
+}
+
+model HiveZone {
+  id           String  @id @default(uuid())
+  beekeeperId  String
+  latitude     Float
+  longitude    Float
+  radiusKm     Float
+  floraExpected String[] // PostgreSQL array
+  maxYieldKg   Float
+}
+
+model BatchEvent {
+  id            String   @id @default(uuid())
+  batchId       String   @unique
+  eventType     String   // "harvest", "pool", "bottle", "dispatch"
+  actorId       String
+  actorRole     String
+  timestamp     DateTime @default(now())
+  region        String?
+  gpsLat        Float?
+  gpsLng        Float?
+  yieldKg       Float?
+  brixReading   Float?
+  moisture      Float?
+  metadataHash  String
+  parentBatches String[] // PostgreSQL array of parent batch IDs
+  qrCodeData    String?
+  consumed      Boolean  @default(false)
+}
+
+model AnomalyFlag {
+  id        String   @id @default(uuid())
+  batchId   String
+  flagType  String   // "GEOFENCE_VIOLATION", "YIELD_ANOMALY", "MANUAL_FLAG"
+  reason    String
+  severity  String   @default("HIGH") // "LOW", "MEDIUM", "HIGH", "CRITICAL"
+  resolved  Boolean  @default(false)
+  flaggedBy String?
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  action    String
+  actorId   String
+  actorRole String
+  targetId  String?
+  metadata  String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+}

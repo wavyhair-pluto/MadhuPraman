@@ -1,0 +1,57 @@
+[
+  {
+    "id": "BK-1001",
+    "name": "Rajesh Kumar",
+    "pin": "1234",
+    "region": "Himachal Pradesh",
+    "district": "Kullu",
+    "hiveZone": { "latitude": 31.1048, "longitude": 77.1734, "radiusKm": 5.0 },
+    "registrationStatus": "ACTIVE",
+    "floraExpected": ["Mustard", "Apple", "Eucalyptus"],
+    "maxYieldPerSeasonKg": 500
+  },
+  {
+    "id": "BK-1002",
+    "name": "Anita Devi",
+    "pin": "5678",
+    "region": "Punjab",
+    "district": "Ludhiana",
+    "hiveZone": { "latitude": 30.9009, "longitude": 75.8572, "radiusKm": 10.0 },
+    "registrationStatus": "ACTIVE",
+    "floraExpected": ["Mustard", "Sunflower"],
+    "maxYieldPerSeasonKg": 800
+  },
+  {
+    "id": "BK-1003",
+    "name": "Sunil Sharma",
+    "pin": "9012",
+    "region": "Uttarakhand",
+    "district": "Dehradun",
+    "hiveZone": { "latitude": 30.0668, "longitude": 79.0193, "radiusKm": 3.0 },
+    "registrationStatus": "SUSPENDED",
+    "floraExpected": ["Multiflora"],
+    "maxYieldPerSeasonKg": 300
+  },
+  {
+    "id": "BK-1004",
+    "name": "Meena Kumari",
+    "pin": "3456",
+    "region": "Rajasthan",
+    "district": "Alwar",
+    "hiveZone": { "latitude": 27.5530, "longitude": 76.6346, "radiusKm": 8.0 },
+    "registrationStatus": "ACTIVE",
+    "floraExpected": ["Mustard", "Ber"],
+    "maxYieldPerSeasonKg": 600
+  },
+  {
+    "id": "BK-1005",
+    "name": "Vikram Singh",
+    "pin": "7890",
+    "region": "Madhya Pradesh",
+    "district": "Hoshangabad",
+    "hiveZone": { "latitude": 22.7530, "longitude": 77.7340, "radiusKm": 6.0 },
+    "registrationStatus": "ACTIVE",
+    "floraExpected": ["Eucalyptus", "Teak"],
+    "maxYieldPerSeasonKg": 450
+  }
+]

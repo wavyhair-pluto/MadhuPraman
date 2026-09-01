@@ -1,0 +1,11 @@
+{
+  "name": "truesource-chaincode",
+  "version": "1.0.0",
+  "description": "Hyperledger Fabric Smart Contract for TrueSource HoneyChain — Append-Only Batch Ledger",
+  "main": "index.js",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "fabric-contract-api": "^2.5.3",
+    "fabric-shim": "^2.5.3"
+  }
+}

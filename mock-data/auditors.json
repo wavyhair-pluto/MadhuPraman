@@ -1,0 +1,16 @@
+[
+  {
+    "id": "AUDIT-001",
+    "name": "FSSAI Inspector — Dr. Priya Mehta",
+    "role": "auditor",
+    "email": "inspector@fssai.gov.in",
+    "password": "auditor123"
+  },
+  {
+    "id": "AUDIT-002",
+    "name": "CSE Lab Analyst — Rohit Verma",
+    "role": "auditor",
+    "email": "analyst@cseindia.org",
+    "password": "auditor456"
+  }
+]

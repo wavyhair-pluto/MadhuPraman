@@ -1,0 +1,16 @@
+[
+  {
+    "id": "PROC-001",
+    "name": "Himalayan Naturals FPO",
+    "role": "processor",
+    "email": "admin@himalayannaturals.com",
+    "password": "processor123"
+  },
+  {
+    "id": "PROC-002",
+    "name": "Punjab Honey Co.",
+    "role": "processor",
+    "email": "admin@punjabhoney.com",
+    "password": "processor456"
+  }
+]
