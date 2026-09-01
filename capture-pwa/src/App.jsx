@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import CaptureScreen from './screens/CaptureScreen';
@@ -30,12 +31,27 @@ export default function App() {
   };
 
   if (!token) {
-    return <LoginScreen onLogin={handleLogin} />;
+    return (
+      <>
+        <LoginScreen onLogin={handleLogin} />
+        <Analytics />
+      </>
+    );
   }
 
   if (screen === 'capture') {
-    return <CaptureScreen token={token} user={user} onBack={() => setScreen('home')} />;
+    return (
+      <>
+        <CaptureScreen token={token} user={user} onBack={() => setScreen('home')} />
+        <Analytics />
+      </>
+    );
   }
 
-  return <HomeScreen user={user} onCapture={() => setScreen('capture')} onLogout={() => { setToken(null); setUser(null); }} />;
+  return (
+    <>
+      <HomeScreen user={user} onCapture={() => setScreen('capture')} onLogout={() => { setToken(null); setUser(null); }} />
+      <Analytics />
+    </>
+  );
 }
