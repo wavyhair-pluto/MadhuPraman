@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 
 export default function LoginScreen({ onAuth }) {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -28,7 +28,7 @@ export default function LoginScreen({ onAuth }) {
           <div className="w-16 h-16 bg-honey/20 rounded-2xl flex items-center justify-center mx-auto mb-3">
             <span className="text-3xl">🍯</span>
           </div>
-          <h1 className="text-2xl font-bold text-navy">TrueSource</h1>
+          <h1 className="text-2xl font-bold text-navy">MadhuPraman</h1>
           <p className="text-sm text-slate-500 mt-1">Zero-Trust Beekeeper Capture</p>
         </div>
 

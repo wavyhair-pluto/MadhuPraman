@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
@@ -24,7 +24,7 @@ export default function ConsumerViewer({ onBack, initialBatchId }) {
     setLoading(true); setError(''); setStory(null);
     try {
       const res = await fetch(`${API_URL}/api/public/batch/${lookupId}`);
-      if (!res.ok) throw new Error('Batch not found on the TrueSource ledger. Verify the Batch ID and try again.');
+      if (!res.ok) throw new Error('Batch not found on the MadhuPraman ledger. Verify the Batch ID and try again.');
       const data = await res.json();
       setStory(data);
     } catch (e) { setError(e.message); }
@@ -45,7 +45,7 @@ export default function ConsumerViewer({ onBack, initialBatchId }) {
           (decodedText) => {
             // Extract batch ID from QR code URL or raw text
             let extractedId = decodedText;
-            // If the QR contains a URL like https://truesource.vercel.app/batch/BATCH-BTL-xxx
+            // If the QR contains a URL like https://MadhuPraman.vercel.app/batch/BATCH-BTL-xxx
             const urlMatch = decodedText.match(/batch\/([A-Z0-9-]+)/i);
             if (urlMatch) extractedId = urlMatch[1];
             // Stop scanner and perform lookup
@@ -94,7 +94,7 @@ export default function ConsumerViewer({ onBack, initialBatchId }) {
         <div className="flex items-center gap-2">
           <span className="text-2xl">🍯</span>
           <div>
-            <h1 className="text-lg font-bold text-amber-900">TrueSource</h1>
+            <h1 className="text-lg font-bold text-amber-900">MadhuPraman</h1>
             <p className="text-xs text-amber-600">Honey Verification</p>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function ConsumerViewer({ onBack, initialBatchId }) {
         {loading && (
           <div className="text-center py-12">
             <div className="w-16 h-16 border-4 border-amber-200 border-t-amber-500 rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-amber-700 font-medium">Querying TrueSource Ledger...</p>
+            <p className="text-amber-700 font-medium">Querying MadhuPraman Ledger...</p>
             <p className="text-xs text-amber-500 mt-1">Verifying blockchain provenance</p>
           </div>
         )}
@@ -184,7 +184,7 @@ export default function ConsumerViewer({ onBack, initialBatchId }) {
                 <span className="text-4xl">✓</span>
               </div>
               <h3 className="text-xl font-bold">Verified Authentic</h3>
-              <p className="text-sm opacity-80 mt-1">Cryptographically verified on TrueSource Hyperledger Fabric</p>
+              <p className="text-sm opacity-80 mt-1">Cryptographically verified on MadhuPraman Hyperledger Fabric</p>
               <p className="font-mono text-xs opacity-60 mt-2">{batchId}</p>
             </div>
 

@@ -1,11 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 
 export default function HomeScreen({ user, onCapture, onLogout }) {
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="bg-navy text-white p-4 flex justify-between items-center shadow-lg">
         <div>
-          <h1 className="text-lg font-bold">TrueSource</h1>
+          <h1 className="text-lg font-bold">MadhuPraman</h1>
           <p className="text-xs text-blue-200">{user.name} ({user.id})</p>
         </div>
         <button onClick={onLogout} className="text-xs bg-white/10 px-3 py-1.5 rounded-lg hover:bg-white/20">Logout</button>

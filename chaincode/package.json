@@ -1,7 +1,7 @@
-{
-  "name": "truesource-chaincode",
+﻿{
+  "name": "MadhuPraman-chaincode",
   "version": "1.0.0",
-  "description": "Hyperledger Fabric Smart Contract for TrueSource HoneyChain — Append-Only Batch Ledger",
+  "description": "Hyperledger Fabric Smart Contract for MadhuPraman — Append-Only Batch Ledger",
   "main": "index.js",
   "engines": { "node": ">=18" },
   "dependencies": {

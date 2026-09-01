@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -71,7 +71,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log(`\n[Zero-Trust Gateway] TrueSource API running on port ${PORT}`);
+  console.log(`\n[Zero-Trust Gateway] MadhuPraman API running on port ${PORT}`);
   console.log(`[Fabric Mode] ${process.env.USE_REAL_FABRIC === 'true' ? 'PRODUCTION (gRPC/mTLS)' : 'MOCK (In-Memory Ledger)'}`);
   console.log(`[Database] PostgreSQL via Prisma\n`);
 });

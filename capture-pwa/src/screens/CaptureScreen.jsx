@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
 // Offline queue using localStorage (AES-256 encrypted IndexedDB in production)
-const getQueue = () => JSON.parse(localStorage.getItem('truesource_offline_queue') || '[]');
-const addToQueue = (p) => { const q = getQueue(); q.push({ ...p, queuedAt: new Date().toISOString() }); localStorage.setItem('truesource_offline_queue', JSON.stringify(q)); };
-const clearQueue = () => localStorage.removeItem('truesource_offline_queue');
+const getQueue = () => JSON.parse(localStorage.getItem('MadhuPraman_offline_queue') || '[]');
+const addToQueue = (p) => { const q = getQueue(); q.push({ ...p, queuedAt: new Date().toISOString() }); localStorage.setItem('MadhuPraman_offline_queue', JSON.stringify(q)); };
+const clearQueue = () => localStorage.removeItem('MadhuPraman_offline_queue');
 
 export default function CaptureScreen({ token, user, onBack }) {
   const [gps, setGps] = useState(null);

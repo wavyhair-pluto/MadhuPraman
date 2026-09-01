@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const ledger = require('../services/ledger');
 
@@ -35,7 +35,7 @@ router.get('/batch/:batchId', async (req, res) => {
     res.json({
       batchId,
       verified: true,
-      ledgerNetwork: 'TrueSource Hyperledger Fabric',
+      ledgerNetwork: 'MadhuPraman Hyperledger Fabric',
       timeline,
       summary: {
         totalSourceBeekeepers: harvestCount,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import ProcessorDashboard from './screens/ProcessorDashboard';
 import AuditorConsole from './screens/AuditorConsole';
 import ConsumerViewer from './screens/ConsumerViewer';
@@ -51,7 +51,7 @@ export default function App() {
         <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-sm">
           <div className="text-center mb-6">
             <div className="w-16 h-16 bg-honey/20 rounded-2xl flex items-center justify-center mx-auto mb-3"><span className="text-3xl">🔒</span></div>
-            <h1 className="text-2xl font-bold text-navy">TrueSource</h1>
+            <h1 className="text-2xl font-bold text-navy">MadhuPraman</h1>
             <p className="text-sm text-slate-500 mt-1">Zero-Trust Authentication Gateway</p>
           </div>
 
@@ -100,7 +100,7 @@ export default function App() {
     <div className="min-h-screen bg-slate-100">
       <header className="bg-navy text-white p-4 flex justify-between items-center shadow-lg">
         <div>
-          <h1 className="text-lg font-bold">TrueSource {user.role === 'processor' ? '🏭 Processor' : '🔍 Auditor'}</h1>
+          <h1 className="text-lg font-bold">MadhuPraman {user.role === 'processor' ? '🏭 Processor' : '🔍 Auditor'}</h1>
           <p className="text-xs text-blue-200">{user.name} • {user.id || user.email}</p>
         </div>
         <button onClick={() => { setUser(null); setToken(''); }} className="text-xs bg-white/10 px-3 py-1.5 rounded-lg hover:bg-white/20">Logout</button>

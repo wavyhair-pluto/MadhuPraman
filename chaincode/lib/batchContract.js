@@ -1,9 +1,9 @@
-'use strict';
+﻿'use strict';
 
 const { Contract } = require('fabric-contract-api');
 
 /**
- * TrueSource Batch Contract
+ * MadhuPraman Batch Contract
  * 
  * CRITICAL DESIGN DECISION:
  * This contract is APPEND-ONLY by design. There are NO UpdateBatchEvent
@@ -13,7 +13,7 @@ const { Contract } = require('fabric-contract-api');
 class BatchContract extends Contract {
 
   async InitLedger(ctx) {
-    console.info('TrueSource Ledger initialized.');
+    console.info('MadhuPraman Ledger initialized.');
   }
 
   /**
@@ -118,7 +118,7 @@ class BatchContract extends Contract {
   // ============================================================
   // NOTE: There is deliberately NO UpdateBatchEvent function.
   // NOTE: There is deliberately NO DeleteBatchEvent function.
-  // This is the core anti-fraud guarantee of TrueSource.
+  // This is the core anti-fraud guarantee of MadhuPraman.
   // ============================================================
 }
 

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * PRODUCTION LEDGER SERVICE
  * Real Hyperledger Fabric Gateway using gRPC over mTLS.
  * This file is used when USE_REAL_FABRIC=true and a real Fabric test network is running.
@@ -10,7 +10,7 @@ const path = require('path');
 const grpc = require('@grpc/grpc-js');
 
 const channelName = process.env.CHANNEL_NAME || 'mychannel';
-const chaincodeName = process.env.CHAINCODE_NAME || 'truesource';
+const chaincodeName = process.env.CHAINCODE_NAME || 'MadhuPraman';
 const mspId = process.env.MSP_ID || 'BeekeeperOrgMSP';
 
 const cryptoPath = path.resolve(__dirname, '..', '..', '..', 'test-network', 'organizations', 'peerOrganizations', 'beekeeper.example.com');
